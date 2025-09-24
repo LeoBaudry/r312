@@ -18,6 +18,8 @@ export default defineConfig({
   },
 
   adapter: node({
-    mode: 'standalone'
+    mode: 'standalone',
+    // @ts-ignore
+    port: process.env.PORT || 8082
   })
 });
