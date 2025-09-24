@@ -48,4 +48,4 @@ jobs:
           cd /var/www/r312
           npm ci
           npm install send server-destroy
-          port=8082 pm2 start -f entry.mjs
+          port=8082 pm2 start -f entry.js
