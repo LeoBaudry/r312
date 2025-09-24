@@ -19,7 +19,5 @@ export default defineConfig({
 
   adapter: node({
     mode: 'standalone',
-    // @ts-ignore
-    port: process.env.PORT || 8082
   })
 });
