@@ -31,7 +31,7 @@ jobs:
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22015
-          source: "dist/*"
+          source: "package.json, dist/*"
           target: "/var/www/r312/"
           strip_components: 1
           rm: false
@@ -47,6 +47,7 @@ jobs:
           port: 22015
           script: |
             cd /var/www/r312/server
-            npm ci
+            npm i
             npm install send server-destroy
-            PORT=8082 pm2 start -f entry.mjs --name entry
+            PORT=8082 pm2 restart r312 || PORT=8082 pm2 start entry.mjs --name r312 
+            
